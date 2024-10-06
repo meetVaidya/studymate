@@ -8,7 +8,7 @@ export default function Grades() {
             </CardHeader>
             <CardContent>
                 <div className="space-y-4">
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col md:flex-row items-center justify-between">
                         <div className="flex items-center space-x-4">
                             <div className="bg-gray-100 p-2 rounded-full">
                                 <svg
@@ -27,19 +27,15 @@ export default function Grades() {
                                 </svg>
                             </div>
                             <div>
-                                <h3 className="font-semibold">
-                                    Mid-term paper
-                                </h3>
-                                <p className="text-sm text-gray-500">
-                                    Summer term
-                                </p>
+                                <h3 className="font-semibold">Mid-term paper</h3>
+                                <p className="text-sm text-gray-500">Summer term</p>
                             </div>
                         </div>
-                        <span className="text-2xl font-bold text-blue-600">
+                        <span className="text-2xl font-bold text-blue-600 mt-2 md:mt-0">
                             98
                         </span>
                     </div>
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col md:flex-row items-center justify-between">
                         <div className="flex items-center space-x-4">
                             <div className="bg-gray-100 p-2 rounded-full">
                                 <svg
@@ -59,16 +55,14 @@ export default function Grades() {
                             </div>
                             <div>
                                 <h3 className="font-semibold">Art History</h3>
-                                <p className="text-sm text-gray-500">
-                                    Summer term
-                                </p>
+                                <p className="text-sm text-gray-500">Summer term</p>
                             </div>
                         </div>
-                        <span className="text-2xl font-bold text-blue-600">
+                        <span className="text-2xl font-bold text-blue-600 mt-2 md:mt-0">
                             72
                         </span>
                     </div>
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col md:flex-row items-center justify-between">
                         <div className="flex items-center space-x-4">
                             <div className="bg-gray-100 p-2 rounded-full">
                                 <svg
@@ -87,15 +81,11 @@ export default function Grades() {
                                 </svg>
                             </div>
                             <div>
-                                <h3 className="font-semibold">
-                                    Maths & Numbers
-                                </h3>
-                                <p className="text-sm text-gray-500">
-                                    Summer term
-                                </p>
+                                <h3 className="font-semibold">Maths & Numbers</h3>
+                                <p className="text-sm text-gray-500">Summer term</p>
                             </div>
                         </div>
-                        <span className="text-2xl font-bold text-blue-600">
+                        <span className="text-2xl font-bold text-blue-600 mt-2 md:mt-0">
                             34
                         </span>
                     </div>

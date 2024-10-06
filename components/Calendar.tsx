@@ -13,7 +13,7 @@ export default function Calendar() {
                 <Badge variant="outline">May 01- May 21, 2023</Badge>
             </CardHeader>
             <CardContent>
-                <div className="grid grid-cols-7 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-2">
                     {days.map((day) => (
                         <div
                             key={day}

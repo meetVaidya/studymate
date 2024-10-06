@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Inbox() {
     return (
-        <Card>
+        <Card className="max-w-md mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl">
             <CardHeader>
                 <CardTitle>Inbox</CardTitle>
             </CardHeader>
