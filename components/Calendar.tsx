@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 export default function Calendar() {
-    const days = Array.from({ length: 21 }, (_, i) => i + 1);
+    const days = Array.from({ length: 31 }, (_, i) => i + 1);
 
     return (
         <Card>
