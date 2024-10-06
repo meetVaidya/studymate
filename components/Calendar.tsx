@@ -10,7 +10,7 @@ export default function Calendar() {
                 <CardTitle className="text-sm font-medium">
                     Your Schedule
                 </CardTitle>
-                <Badge variant="outline">May 01- May 21, 2023</Badge>
+                <Badge variant="outline">Oct 01- Oct 31, 2024</Badge>
             </CardHeader>
             <CardContent>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-2">
