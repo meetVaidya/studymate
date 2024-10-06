@@ -76,35 +76,35 @@ export default function Dashboard() {
                 </div>
                 <div className="grid grid-cols-2 gap-8 mb-8">
                     <CourseCard
-                        title="English 101"
-                        description="Master the basics with our"
-                        image="/english-101.jpg"
+                        title="System Fundamentals"
+                        description="Learn the basics of computer systems"
+                        image="/systemfundamentals.jpg"
                         progress={67}
                         lesson="Lesson 8 out of 12"
                         classInfo="Class 300 starts today at 11 AM. Join 34 other students in"
                     />
                     <CourseCard
-                        title="Human Biology"
-                        description="Learn how the brain works"
-                        image="/human-biology.jpg"
+                        title="Computer Networks"
+                        description="Learn about computer networks"
+                        image="/computernetworks.jpg"
                         progress={33}
                         lesson="Lesson 4 out of 12"
                         classInfo="Join Class 766 for a paper 42 students are in this class."
                         tag="Due Homework"
                     />
                     <CourseCard
-                        title="World Economy"
-                        description="Explore leading markets"
-                        image="/world-economy.jpg"
+                        title="Data Structures"
+                        description="Learn about data structures"
+                        image="/dsa.jpg"
                         progress={50}
                         status="Pending"
                         classInfo="Individual oral exam on Monday Take your exam online with"
                         tag="Open Exam"
                     />
                     <CourseCard
-                        title="Paper Review"
-                        description="Join Mr. Brown for a paper"
-                        image="/paper-review.jpg"
+                        title="Database Management"
+                        description="Learn about database management"
+                        image="/dbms.jpg"
                         progress={100}
                         status="Signed up"
                         classInfo="Individual meeting Online. Status: Signed up."

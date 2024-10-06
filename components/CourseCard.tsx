@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import Image from "next/image";
 
 interface CourseCardProps {
     title: string;
@@ -33,9 +34,11 @@ export default function CourseCard({
         <Card>
             <CardHeader className="pb-4">
                 <div className="flex items-center space-x-4">
-                    <img
+                    <Image
                         src={image}
                         alt={title}
+                        width={80}
+                        height={80}
                         className="w-16 h-16 rounded-lg object-cover"
                     />
                     <div>
