@@ -22,22 +22,22 @@ export default function Calendar() {
                             <span className="text-sm font-medium">{day}</span>
                             {day === 4 && (
                                 <div className="mt-1 text-xs bg-blue-100 text-blue-800 rounded px-1">
-                                    English 101
+                                    DSA
                                 </div>
                             )}
                             {day === 10 && (
                                 <div className="mt-1 text-xs bg-green-100 text-green-800 rounded px-1">
-                                    Human Biology
+                                    Computer Networks
                                 </div>
                             )}
                             {day === 15 && (
                                 <div className="mt-1 text-xs bg-yellow-100 text-yellow-800 rounded px-1">
-                                    World Economy
+                                    Web Development
                                 </div>
                             )}
                             {day === 19 && (
                                 <div className="mt-1 text-xs bg-purple-100 text-purple-800 rounded px-1">
-                                    Paper Review
+                                    System Fundamentals
                                 </div>
                             )}
                         </div>

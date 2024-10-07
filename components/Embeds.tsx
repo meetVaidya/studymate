@@ -11,7 +11,7 @@ export default function Embeds() {
             <CardContent>
                 <div className="relative aspect-video mb-4">
                     <Image
-                        src="/dsa-basics.jpg"
+                        src="/image.png"
                         alt="DSA Basics"
                         width={400}
                         height={200}

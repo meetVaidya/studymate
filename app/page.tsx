@@ -78,36 +78,36 @@ export default function Dashboard() {
                     <CourseCard
                         title="System Fundamentals"
                         description="Learn the basics of computer systems"
-                        image="/systemfundamentals.jpg"
+                        image="/systemfundamentals.svg"
                         progress={67}
                         lesson="Lesson 8 out of 12"
-                        classInfo="Class 300 starts today at 11 AM. Join 34 other students in"
+                        classInfo="Currently studying Gantt charts"
                     />
                     <CourseCard
                         title="Computer Networks"
                         description="Learn about computer networks"
-                        image="/computernetworks.jpg"
+                        image="/computernetworks.svg"
                         progress={33}
                         lesson="Lesson 4 out of 12"
-                        classInfo="Join Class 766 for a paper 42 students are in this class."
+                        classInfo="Understanding the OSI model"
                         tag="Due Homework"
                     />
                     <CourseCard
                         title="Data Structures"
                         description="Learn about data structures"
-                        image="/dsa.jpg"
+                        image="/dsa.svg"
                         progress={50}
                         status="Pending"
-                        classInfo="Individual oral exam on Monday Take your exam online with"
+                        classInfo="Understanding linked lists"
                         tag="Open Exam"
                     />
                     <CourseCard
                         title="Database Management"
                         description="Learn about database management"
-                        image="/dbms.jpg"
+                        image="/database.svg"
                         progress={100}
                         status="Signed up"
-                        classInfo="Individual meeting Online. Status: Signed up."
+                        classInfo="Pending concepts for MySQL"
                     />
                 </div>
                 <Calendar />

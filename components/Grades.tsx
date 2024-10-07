@@ -27,8 +27,8 @@ export default function Grades() {
                                 </svg>
                             </div>
                             <div>
-                                <h3 className="font-semibold">Mid-term paper</h3>
-                                <p className="text-sm text-gray-500">Summer term</p>
+                                <h3 className="font-semibold">DBMS</h3>
+                                <p className="text-sm text-gray-500"></p>
                             </div>
                         </div>
                         <span className="text-2xl font-bold text-blue-600 mt-2 md:mt-0">
@@ -54,8 +54,8 @@ export default function Grades() {
                                 </svg>
                             </div>
                             <div>
-                                <h3 className="font-semibold">Art History</h3>
-                                <p className="text-sm text-gray-500">Summer term</p>
+                                <h3 className="font-semibold">DSA</h3>
+                                <p className="text-sm text-gray-500"></p>
                             </div>
                         </div>
                         <span className="text-2xl font-bold text-blue-600 mt-2 md:mt-0">
@@ -81,8 +81,8 @@ export default function Grades() {
                                 </svg>
                             </div>
                             <div>
-                                <h3 className="font-semibold">Maths & Numbers</h3>
-                                <p className="text-sm text-gray-500">Summer term</p>
+                                <h3 className="font-semibold">Computer Networks</h3>
+                                <p className="text-sm text-gray-500"></p>
                             </div>
                         </div>
                         <span className="text-2xl font-bold text-blue-600 mt-2 md:mt-0">
