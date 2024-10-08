@@ -8,6 +8,59 @@ import Embeds from "@/components/Embeds";
 import Grades from "@/components/Grades";
 import Inbox from "@/components/Inbox";
 
+const data = [
+    {
+        title: "System Fundamentals",
+        description: "Learn the basics of computer systems",
+        image: "/systemfundamentals.svg",
+        progress: 67,
+        lesson: "Lesson 8 out of 12",
+        classInfo: "Currently studying Gantt charts",
+    },
+    {
+        title: "Computer Networks",
+        description: "Learn about computer networks",
+        image: "/computernetworks.svg",
+        progress: 33,
+        lesson: "Lesson 4 out of 12",
+        classInfo: "Understanding the OSI model",
+        tag: "Due Homework",
+    },
+    {
+        title: "Data Structures",
+        description: "Learn about data structures",
+        image: "/dsa.svg",
+        progress: 50,
+        status: "Pending",
+        classInfo: "Understanding linked lists",
+        tag: "Open Exam",
+    },
+    {
+        title: "Database Management",
+        description: "Learn about database management",
+        image: "/database.svg",
+        progress: 100,
+        status: "Signed up",
+        classInfo: "Pending concepts for MySQL",
+    },
+    {
+        title: "System Fundamentals",
+        description: "Learn the basics of computer systems",
+        image: "/systemfundamentals.svg",
+        progress: 67,
+        lesson: "Lesson 8 out of 12",
+        classInfo: "Currently studying Gantt charts",
+    },
+    {
+        title: "Database Management",
+        description: "Learn about database management",
+        image: "/database.svg",
+        progress: 100,
+        status: "Signed up",
+        classInfo: "Pending concepts for MySQL",
+    },
+];
+
 export default function Dashboard() {
     return (
         <div className="flex h-screen bg-gray-100">
@@ -75,40 +128,9 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className="grid grid-cols-2 gap-8 mb-8">
-                    <CourseCard
-                        title="System Fundamentals"
-                        description="Learn the basics of computer systems"
-                        image="/systemfundamentals.svg"
-                        progress={67}
-                        lesson="Lesson 8 out of 12"
-                        classInfo="Currently studying Gantt charts"
-                    />
-                    <CourseCard
-                        title="Computer Networks"
-                        description="Learn about computer networks"
-                        image="/computernetworks.svg"
-                        progress={33}
-                        lesson="Lesson 4 out of 12"
-                        classInfo="Understanding the OSI model"
-                        tag="Due Homework"
-                    />
-                    <CourseCard
-                        title="Data Structures"
-                        description="Learn about data structures"
-                        image="/dsa.svg"
-                        progress={50}
-                        status="Pending"
-                        classInfo="Understanding linked lists"
-                        tag="Open Exam"
-                    />
-                    <CourseCard
-                        title="Database Management"
-                        description="Learn about database management"
-                        image="/database.svg"
-                        progress={100}
-                        status="Signed up"
-                        classInfo="Pending concepts for MySQL"
-                    />
+                    {data.map((course, index) => (
+                        <CourseCard key={index} {...course} />
+                    ))}
                 </div>
                 <Calendar />
             </main>
