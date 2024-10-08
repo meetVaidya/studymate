@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Search, Plus, X } from "lucide-react";
+import { Search, Plus, X, Check } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,12 +13,34 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 
 export default function FloatingDock() {
     const [isExpanded, setIsExpanded] = useState(false);
     const [documents, setDocuments] = useState<string[]>([]);
     const [searchQuery, setSearchQuery] = useState("");
+    const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+    const [uploadedFileName, setUploadedFileName] = useState("");
+
+    async function uploadFileToSupabase(file: File) {
+        const { createClient } = await import("@supabase/supabase-js");
+        const supabaseUrl = "https://bqaiulnmwcljfbehfqob.supabase.co";
+        const supabaseKey =
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJxYWl1bG5td2NsamZiZWhmcW9iIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcyODM2OTgzNCwiZXhwIjoyMDQzOTQ1ODM0fQ.UVr0RvCd8tlStMxXxFZ0HP5OTqY2NuAdEX1WKMd-cGc";
+        const supabase = createClient(supabaseUrl, supabaseKey);
+
+        const { data, error } = await supabase.storage
+            .from("tets")
+            .upload(`documents/${file.name}`, file);
+
+        if (error) {
+            console.error("Error uploading file:", error);
+        } else {
+            console.log("File uploaded successfully:", data);
+            addDocument(data.path);
+            setUploadedFileName(file.name);
+            setIsSuccessModalOpen(true);
+        }
+    }
 
     const addDocument = (content: string) => {
         setDocuments([...documents, content]);
@@ -66,28 +88,31 @@ export default function FloatingDock() {
                                 <form
                                     onSubmit={(e) => {
                                         e.preventDefault();
-                                        const content = (
+                                        const fileInput = (
                                             e.target as HTMLFormElement
-                                        ).content.value;
-                                        addDocument(content);
-                                        (e.target as HTMLFormElement).reset();
+                                        ).file as HTMLInputElement;
+                                        const file = fileInput.files?.[0];
+                                        if (file) {
+                                            uploadFileToSupabase(file);
+                                        }
                                     }}
                                 >
                                     <div className="grid gap-4 py-4">
                                         <div className="grid gap-2">
-                                            <Label htmlFor="content">
-                                                Content
+                                            <Label htmlFor="file">
+                                                Upload File
                                             </Label>
-                                            <Textarea
-                                                id="content"
-                                                placeholder="Enter your document content here..."
+                                            <Input
+                                                id="file"
+                                                type="file"
+                                                accept=".pdf,.doc,.docx,.txt"
                                                 className="h-32"
                                             />
                                         </div>
                                     </div>
                                     <div className="flex justify-end">
                                         <Button type="submit">
-                                            Add Document
+                                            Upload File
                                         </Button>
                                     </div>
                                 </form>
@@ -151,6 +176,31 @@ export default function FloatingDock() {
                     </div>
                 )}
             </div>
+            <Dialog
+                open={isSuccessModalOpen}
+                onOpenChange={setIsSuccessModalOpen}
+            >
+                <DialogContent>
+                    <DialogHeader>
+                        <DialogTitle>File Uploaded Successfully</DialogTitle>
+                        <DialogDescription>
+                            Your file has been uploaded and added to your
+                            documents.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <div className="flex items-center justify-center p-4">
+                        <div className="bg-green-100 text-green-800 rounded-full p-2">
+                            <Check className="h-6 w-6" />
+                        </div>
+                    </div>
+                    <p className="text-center font-semibold">
+                        {uploadedFileName}
+                    </p>
+                    <Button onClick={() => setIsSuccessModalOpen(false)}>
+                        Close
+                    </Button>
+                </DialogContent>
+            </Dialog>
         </div>
     );
 }
