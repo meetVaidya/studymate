@@ -12,6 +12,7 @@ import removeMd from "remove-markdown";
 type Message = {
     role: "user" | "assistant";
     content: string;
+    doc?: string;
 };
 
 export default function Chat() {
@@ -57,6 +58,7 @@ export default function Chat() {
             const assistantMessage: Message = {
                 role: "assistant",
                 content: removeMd(data.response.generated_text),
+                doc: removeMd(data.response.params),
             };
             setMessages((prev) => [...prev, assistantMessage]);
         } catch (error) {
@@ -112,6 +114,11 @@ export default function Chat() {
                                                 : "bg-gray-200 dark:bg-gray-700"
                                         }`}
                                     >
+                                        {message.role === "assistant" && (
+                                            <div className="text-gray-500 text-sm mb-1">
+                                                {message.doc}
+                                            </div>
+                                        )}
                                         {message.content}
                                     </div>
                                 </div>
