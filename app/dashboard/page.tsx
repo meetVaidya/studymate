@@ -43,7 +43,7 @@ const data = [
         progress: 100,
         status: "Signed up",
         classInfo: "Pending concepts for MySQL",
-    }
+    },
 ];
 
 export default function Dashboard() {

@@ -1,0 +1,25 @@
+    "documents": [
+        {
+            "classification": {
+                "chapter_name": "Example A* is Admissible Proof using series of Lemmas",
+                "document_type": "STUDY_MATERIAL",
+                "subject": "A* Algorithm",
+                "syllabus_or_date_changes": null
+            },
+            "document_content": {
+                "embeddings": [ ...],
+                "extracted_text": "A* AlgorithmExampleA* is AdmissibleProof using series of Lemmas",
+                "key_topics": [
+                    "AdmissibleProof",
+                    "Lemmas"
+                ]
+            },
+            "file_metadata": {
+                "file_name": "A_.pdf",
+                "file_size": 4615482,
+                "file_type": "application/pdf",
+                "page_count": null,
+                "upload_date": "2024-10-09T02:30:39.433406"
+            },
+            "user_id": "user_1"
+        },....]
