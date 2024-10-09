@@ -16,7 +16,7 @@ export default function Sidebar() {
                 </div>
             </div>
             <nav className="space-y-4">
-                <Link href='/'>
+                <Link href="/dashboard">
                     <Button
                         variant="secondary"
                         className="w-full justify-start"
