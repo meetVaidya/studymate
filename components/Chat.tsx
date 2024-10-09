@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Sidebar from "./Sidebar";
+import removeMd from "remove-markdown";
 
 type Message = {
     role: "user" | "assistant";
@@ -35,7 +36,7 @@ export default function Chat() {
         setIsLoading(true);
 
         try {
-            const response = await fetch("http://localhost:5000/chatbot", {
+            const response = await fetch("http://192.168.99.12:5000/chatbot", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -43,7 +44,7 @@ export default function Chat() {
                 body: JSON.stringify({
                     text: input,
                     params: {
-                        user_id: "user_8339", // You might want to generate this dynamically
+                        user_id: "user_2", // You might want to generate this dynamically
                     },
                 }),
             });
@@ -55,7 +56,7 @@ export default function Chat() {
             const data = await response.json();
             const assistantMessage: Message = {
                 role: "assistant",
-                content: data.response.generated_text,
+                content: removeMd(data.response.generated_text),
             };
             setMessages((prev) => [...prev, assistantMessage]);
         } catch (error) {

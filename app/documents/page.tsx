@@ -27,6 +27,7 @@ export default function DocumentsPage() {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [selectedTag, setSelectedTag] = useState<string>("");
     const [chapterName, setChapterName] = useState("");
+    const [userId, setUserId] = useState<string>("user_1"); // New state for user ID
 
     const handleFileDrop = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault();
@@ -42,23 +43,44 @@ export default function DocumentsPage() {
         }
     };
 
-    const handleUpload = () => {
-        if (selectedFile && selectedTag && chapterName) {
-            // Handle file upload (implementation omitted for brevity)
-            // ...
+    const handleUpload = async () => {
+        if (selectedFile && userId) { // Include userId in the check
+            const formData = new FormData();
+            formData.append("file", selectedFile);
+            formData.append("user_id", userId); // Append userId to formData
 
-            // Add the new document to the state
-            const newDocument: Document = {
-                name: selectedFile.name,
-                subject: selectedTag,
-                chapter: chapterName,
-            };
-            setDocuments([...documents, newDocument]);
+            try {
+                const response = await fetch(
+                    "http://192.168.99.12:5000/upload",
+                    {
+                        method: "POST",
+                        body: formData,
+                    }
+                );
 
-            // Reset file, tag, and chapter name selections
-            setSelectedFile(null);
-            setSelectedTag("");
-            setChapterName("");
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log(result);
+
+                    // Add the new document to the state
+                    const newDocument: Document = {
+                        name: selectedFile.name,
+                        subject: selectedTag,
+                        chapter: chapterName,
+                    };
+                    setDocuments([...documents, newDocument]);
+
+                    // Reset file, tag, and chapter name selections
+                    setSelectedFile(null);
+                    setSelectedTag("");
+                    setChapterName("");
+                } else {
+                    const errorData = await response.json();
+                    console.error("Error uploading file:", errorData.error);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
         }
     };
 
@@ -174,6 +196,24 @@ export default function DocumentsPage() {
                                     value={chapterName}
                                     onChange={(e) =>
                                         setChapterName(e.target.value)
+                                    }
+                                />
+                            </div>
+
+                            <div className="mt-4">
+                                <label
+                                    htmlFor="userId"
+                                    className="block text-sm font-medium text-gray-700"
+                                >
+                                    User ID:
+                                </label>
+                                <Input
+                                    type="text"
+                                    id="userId"
+                                    className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 rounded-md"
+                                    value={userId}
+                                    onChange={(e) =>
+                                        setUserId(e.target.value)
                                     }
                                 />
                             </div>
