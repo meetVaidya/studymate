@@ -7,6 +7,7 @@ import Calendar from "@/components/Calendar";
 import Embeds from "@/components/Embeds";
 import Grades from "@/components/Grades";
 import Inbox from "@/components/Inbox";
+import FloatingDock from "@/components/FloatingDock";
 
 const data = [
     {
@@ -133,6 +134,7 @@ export default function Dashboard() {
                     ))}
                 </div>
                 <Calendar />
+                <FloatingDock />
             </main>
             <aside className="w-80 bg-white p-8 overflow-auto">
                 <Embeds />
